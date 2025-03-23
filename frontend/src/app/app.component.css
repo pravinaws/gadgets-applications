@@ -1,0 +1,63 @@
+/* General Layout */
+.layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Header */
+  header {
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+  }
+  
+  /* Main Container */
+  .main-container {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+  }
+  
+  /* Sidebar */
+  .sidebar {
+    width: 250px;
+    background-color: #2c3e50;
+    color: white;
+    padding: 15px;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+  /* Main Content */
+  .content {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f4f4f4;
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 768px) {
+    .main-container {
+      flex-direction: column;
+    }
+  
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  }
+  
+  @media screen and (max-width: 480px) {
+    header {
+      font-size: 14px;
+    }
+  
+    .content {
+      padding: 10px;
+    }
+  }
+  

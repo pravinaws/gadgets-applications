@@ -1,0 +1,93 @@
+/* Sidebar Styles */
+.sidebar {
+    width: 250px;
+    height: 100vh;
+    background-color: #2f2f33;
+    color: white;
+    padding: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: all 0.3s ease-in-out;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .sidebar.collapsed {
+    width: 20%;
+  }
+
+  .fa{
+     margin-right: 10px;
+  }
+  
+  /* User Profile */
+  .sidebar-header {
+    text-align: center;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  }
+  
+  .profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+  }
+  
+  .user-name {
+    font-size: 16px;
+    margin: 8px 0 2px;
+  }
+  
+  .user-email {
+    font-size: 12px;
+    opacity: 0.7;
+  }
+  
+  /* Sidebar Menu */
+  .nav-link {
+    color: white;
+    padding: 5px;
+    display: flex;
+    border-bottom: 2px solid rgba(184, 184, 183, 0.226);
+    align-items: center;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .nav-link:hover {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+  }
+  
+  /* Submenu */
+  .submenu {
+    list-style: none;
+    padding-left: 20px;
+  }
+  
+  .submenu .nav-link {
+    padding: 8px;
+    font-size: 14px;
+  }
+  
+  /* Logout Button */
+  .logout {
+    color: #e74c3c;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+  
+    .sidebar.collapsed {
+      width: 100%;
+    }
+  }
+  

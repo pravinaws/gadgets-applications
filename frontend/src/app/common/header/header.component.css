@@ -1,0 +1,67 @@
+/* Header Styles */
+.header {
+    width: 100%;
+    background-color: #343a40;
+    color: white;
+    padding: 10px 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+  }
+  
+  .container-fluid{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .logo {
+    font-size: 20px;
+    margin: 0;
+  }
+  
+  .user-menu {
+    display: flex;
+    align-items: center;
+  }
+  
+  .logout-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  
+  .logout-btn:hover {
+    color: #e74c3c;
+  }
+  
+  .logout-btn i {
+    font-size: 18px;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .logo {
+      font-size: 18px;
+    }
+  
+    .logout-btn {
+      font-size: 14px;
+    }
+  
+    .logout-btn i {
+      font-size: 16px;
+    }
+  }
+  

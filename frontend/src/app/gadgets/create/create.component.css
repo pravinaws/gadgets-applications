@@ -1,0 +1,19 @@
+.container {
+    width: 80%;
+    margin-left: 20%;
+  }
+  
+  .card {
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .btn-primary {
+    background-color: black !important;
+    border-color: black;
+  }
+  
+  a {
+    color: black;
+  }
+  
