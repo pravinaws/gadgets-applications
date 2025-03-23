@@ -14,7 +14,8 @@ export class LoginComponent {
   password = '';
 
   constructor(private authService: AuthService,private router : Router) {
-    const token = localStorage.getItem('token'); // Retrieve token from local storage
+    const token = localStorage.getItem('token'); 
+    // Retrieve token from local storage
     if (!token) {
       // alert('Unauthorized. Please log in.');
       this.router.navigate(['/login']);
