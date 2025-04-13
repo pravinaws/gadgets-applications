@@ -1,24 +1,267 @@
-.auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 90vh;
-    background: #f8f9fa;
-  }
-  
-  .auth-card {
-    background: white;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    width: 350px;
-  }
-.btn-primary{
-    background-color: black !important;
-    border-color: black;
+/* Prevent scrolling and ensure full-screen display */
+.login {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+  font-family: 'Orbitron', sans-serif; /* Optional: use a tech/gaming font */
+  color: #f0f0f0;
 }
 
-a{
-    color:black;
+.login {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  overflow: hidden;
+  background: linear-gradient(135deg, #0f0f0f, #1a1a2e);
+  font-family: 'Orbitron', sans-serif;
+  color: #f0f0f0;
 }
+
+/* Star animation overlay */
+.login::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 200%;
+  height: 200%;
+  background: transparent url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Ccircle cx='1' cy='1' r='1' fill='white'/%3E%3C/svg%3E") repeat;
+  opacity: 0.15;
+  animation: starsMove 60s linear infinite;
+  z-index: 0;
+  pointer-events: none;
+}
+
+@keyframes starsMove {
+  from { transform: translate(0, 0); }
+  to { transform: translate(-50%, -50%); }
+}
+
+/* Keep content above stars */
+.login > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Stars container */
+.stars {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Star common styles */
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out alternate;
+}
+
+/* Individual star positioning and movement */
+.star1 { top: 10%; left: 15%; animation: twinkle 2s infinite alternate, moveLeft 40s linear infinite; }
+.star2 { top: 20%; left: 60%; animation: twinkle 3s infinite alternate, moveRight 50s linear infinite; }
+.star3 { top: 30%; left: 35%; animation: twinkle 1.5s infinite alternate, moveLeft 55s linear infinite; }
+.star4 { top: 40%; left: 75%; animation: twinkle 2.5s infinite alternate, moveRight 45s linear infinite; }
+.star5 { top: 50%; left: 25%; animation: twinkle 3s infinite alternate, moveLeft 60s linear infinite; }
+.star6 { top: 60%; left: 80%; animation: twinkle 2s infinite alternate, moveRight 40s linear infinite; }
+.star7 { top: 70%; left: 10%; animation: twinkle 1.8s infinite alternate, moveLeft 50s linear infinite; }
+.star8 { top: 80%; left: 50%; animation: twinkle 2.2s infinite alternate, moveRight 55s linear infinite; }
+.star9 { top: 90%; left: 40%; animation: twinkle 3s infinite alternate, moveLeft 60s linear infinite; }
+.star10 { top: 15%; left: 90%; animation: twinkle 1.5s infinite alternate, moveRight 45s linear infinite; }
+
+/* Twinkling effect */
+@keyframes twinkle {
+  0% { opacity: 0.2; }
+  50% { opacity: 1; }
+  100% { opacity: 0.3; }
+}
+
+/* Random drifting directions */
+@keyframes moveLeft {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50px); }
+}
+
+@keyframes moveRight {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(50px); }
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: white;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: twinkle 2s infinite ease-in-out alternate;
+  transition: transform 0.2s ease-out; /* Smooth movement */
+}
+
+.otp-input {
+  font-family: monospace;
+  letter-spacing: 10px;
+  text-align: center;
+  font-size: 1.5rem;
+  padding: 0.5rem;
+}
+
+.login-title {
+  padding: 10% 20% 0 20%; /* top, right, bottom, left */
+  text-align: center;
+  color: #fff; /* optional: white text for dark backgrounds */
+}
+
+
+/* Container centered with 40% padding from top */
+.auth-container {
   
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: -0;
+}
+
+/* Card styling: transparent with glowing/techy border */
+.auth-card {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+  border-radius: 15px;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 25px rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0, 255, 255, 0.2);
+}
+.anchor{
+  color: #00cccc;
+  text-decoration: none;
+}
+.text-muted{
+  color: aquamarine;
+}
+.country-code {
+  background-color: #1a1a2e;
+  border: 1px solid #00ffff99;
+  color: #ffffff;
+  /* font-size: 14px; */
+  text-align: right;
+  border-radius: 10px;
+  white-space: 30px;
+}
+
+/* Input and button tweaks */
+input.form-control{
+  background-color: #1a1a2e;
+  border: 1px solid #00ffff99;
+  color: #ffffff;
+  font-size: 14px;
+  white-space: 30px;
+}
+
+/* Base style for checkbox */
+.form-control.otp-input-checkbox {
+  border: 1px solid transparent;
+  padding: 0.5rem;
+  border-radius: 4px;
+  display: inline-flex;
+  align-items: center;
+  transition: border-color 0.3s ease;
+}
+
+/* When checkbox inside is checked, apply border color */
+.form-control.otp-input-checkbox input[type="checkbox"]:checked {
+  border: 1px solid #00ffff99;
+  outline: none;
+}
+
+/* Optional: Improve appearance when focused */
+.form-control.otp-input-checkbox input[type="checkbox"]:focus {
+  border-color: #00ffff99;
+}
+
+
+input.form-control::placeholder {
+  color: #cccccc;
+}
+
+input.form-control:focus {
+  box-shadow: 0 0 10px #00ffff88;
+  border-color: #00ffff;
+  background-color: #1a1a2e;
+  color: #ffffff;
+}
+
+button.btn {
+  background: #00ffff;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  transition: background 0.3s;
+}
+
+button.btn:hover {
+  background: #00cccc;
+}
+
+.login-logo {
+  width: 120px;        /* Adjust size as needed */
+  height: auto;
+  margin-bottom: 1rem;
+}
+
+
+
+
+.notifyMsgClass{
+  margin-top: 5vh;
+}
+
+/* Mobile Responsive: Adjust padding and text size for smaller screens */
+@media (max-width: 767px) {
+  @media (max-width: 767px) {
+    .login-logo {
+      width: 25vh;
+    }
+  }
+
+  .notifyMsgClass{
+    margin-top: 15vh;
+  }
+
+  .auth-container {
+    padding-top: 0vh; /* less padding on mobile */
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .auth-card {
+    padding: 1.5rem;
+  }
+
+  .login-title {
+    padding: 10% 10% 0 10%; /* reduce horizontal padding on small screens */
+  }
+
+  h3, h4 {
+    font-size: 1.2rem;
+  }
+
+  input.form-control {
+    font-size: 0.9rem;
+  }
+
+  button.btn {
+    font-size: 0.95rem;
+  }
+}

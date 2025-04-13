@@ -33,7 +33,7 @@
   /* Main Content */
   .content {
     flex: 1;
-    padding: 20px;
+    /* padding: 20px; */
     overflow-y: auto;
     background-color: #f4f4f4;
   }
@@ -54,10 +54,6 @@
   @media screen and (max-width: 480px) {
     header {
       font-size: 14px;
-    }
-  
-    .content {
-      padding: 10px;
     }
   }
   

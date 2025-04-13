@@ -3,6 +3,7 @@ const path = require("path");
 
 // Database file path
 const dbPath = path.resolve(__dirname, "./gadgets.db");
+
 const db = new sqlite3.Database(dbPath, sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
     if (err) {
         console.error("Error opening database:", err.message);
@@ -24,12 +25,20 @@ db.run(
 
 // ✅ Create users table if not exists
 db.run(
-    `CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY AUTOINCREMENT,
-        name TEXT NOT NULL,
-        email TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL
-    )`
+  `CREATE TABLE IF NOT EXISTS users (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      name TEXT NOT NULL,
+      email TEXT UNIQUE,
+      phone TEXT UNIQUE,
+      password TEXT NOT NULL
+  )`,
+  (err) => {
+    if (err) {
+      console.error("Error creating users table:", err.message);
+    } else {
+      console.log("✅ Users table ensured.");
+    }
+  }
 );
 
 module.exports = db;

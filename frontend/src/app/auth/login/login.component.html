@@ -1,21 +1,68 @@
-<h4 class="text-center m-4 mb-0">Gadget Inventory Management</h4>
-<div class="auth-container">
-    <div class="auth-card"> 
+<div class="stars">
+  <div class="star"></div>
+  <div class="star"></div>
+  <div class="star"></div>
+  <!-- ... add more stars -->
+</div>
+
+<section class="login">
+  <div class="login-title text-center">
+    <img src="assets/img/logo.gif" alt="Logo" class="login-logo" />
+  </div>
+  <div class="notifyMsgClass">
+    <div *ngIf="notifyMsg" class="text-center   mb-0 alert text-light dark-dismissible fade show" role="alert">
+      <small class="text-warning">
+        {{ notifyMsg }}
+      </small>
+    </div>
+  </div>
+  <div class="auth-container d-flex justify-content-center align-items-start">
+    <div class="auth-card ">
       <h3 class="text-center">Login</h3>
-      <form (submit)="onLogin()">
-        <div class="mb-3">
-          <label for="email" class="form-label">Email</label>
-          <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+      <!-- Step 1: Mobile Number + Country Code -->
+      <form *ngIf="step === 1" (ngSubmit)="sendOtp()">
+        <div class="row mb-3">
+          <!-- Country Code -->
+          <label for="mobile" class="form-label">Mobile Number</label>
+          <div class="col-1"></div>
+          <div class="col-2 ml-2 p-1 country-code">
+            {{countryCode}}
+          </div>
+          <!-- Mobile Number -->
+          <div class="col-9">
+            <input type="tel" class="form-control" id="mobile" name="mobile" [(ngModel)]="mobile" maxlength="10"
+              pattern="^[0-9]{10}$" inputmode="numeric" required placeholder="Enter 10-digit number" />
+          </div>
         </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Password</label>
-          <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+        <!-- Channel Selection -->
+        <button type="submit" class="btn btn-primary w-100">Send OTP</button>
+        <div class="mb-0 text-light">
+          <label for="channel" class="mt-3 form-label">
+            <input type="checkbox" id="channel" name="channel" [(ngModel)]="channel" />
+            <small> Please send the OTP via SMS only.</small>
+          </label>
         </div>
-        <button type="submit" class="btn btn-primary w-100">Login</button>
-        <p class="mt-3 text-center">
-          Don't have an account? <a routerLink="/register">Register</a>
-        </p>
+      </form>
+
+
+      <!-- Step 2: OTP -->
+      <form *ngIf="step === 2" (ngSubmit)="verifyOtp()">
+        <div class="mb-3">
+          <label for="otp" class="form-label">Enter OTP</label>
+          <input type="text" class="form-control otp-input-checkbox" id="otp" name="otp" [(ngModel)]="otp" maxlength="6"
+            pattern="^[0-9]{6}$" inputmode="numeric" required placeholder="ENTER OTP" />
+
+        </div>
+        <button type="submit" class="btn btn-success w-100">Verify & Login</button>
+        <div class="text-center mt-2">
+          <small *ngIf="resendCountdown > 0" class="text-white">
+            You can resend OTP in {{ resendCountdown }} seconds
+          </small>
+          <a *ngIf="resendCountdown === 0" href="#" class="anchor" (click)="resendOtp($event)">
+            Resend OTP
+          </a>
+        </div>
       </form>
     </div>
   </div>
-  
+</section>
